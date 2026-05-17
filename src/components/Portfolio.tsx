@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import myPhoto from "./sansback.png";
 import { useTranslation } from "react-i18next";
-
+import { useMemo } from "react";
 interface PortfolioProps {
   darkMode: boolean;
 }
@@ -12,35 +12,38 @@ const Portfolio: React.FC<PortfolioProps> = ({ darkMode }) => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [roleIndex, setRoleIndex] = useState(0);
 
-  const roles = [
-    t("roles.softwareEngineer"),
-    t("roles.fullStackDeveloper"),
-    t("roles.aiEnthusiast"),
-  ];
+const roles = useMemo(() => [
+  t("roles.softwareEngineer"),
+  t("roles.fullStackDeveloper"),
+  t("roles.aiEnthusiast"),
+], [t]);
+useEffect(() => {
+  let timer: NodeJS.Timeout;
 
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
+  const tick = () => {
+    const current = roles[roleIndex];
 
-    const tick = () => {
-      const current = roles[roleIndex];
-      if (!isDeleting && typedText.length < current.length) {
-        setTypedText(current.slice(0, typedText.length + 1));
-        timer = setTimeout(tick, 90);
-      } else if (isDeleting && typedText.length > 0) {
-        setTypedText(current.slice(0, typedText.length - 1));
-        timer = setTimeout(tick, 50);
-      } else if (!isDeleting && typedText.length === current.length) {
-        timer = setTimeout(() => { setIsDeleting(true); tick(); }, 2400); // pause plus pro
-      } else if (isDeleting && typedText.length === 0) {
-        setIsDeleting(false);
-        setRoleIndex((prev) => (prev + 1) % roles.length);
-        timer = setTimeout(tick, 500);
-      }
-    };
+    if (!isDeleting && typedText.length < current.length) {
+      setTypedText(current.slice(0, typedText.length + 1));
+      timer = setTimeout(tick, 90);
+    } else if (isDeleting && typedText.length > 0) {
+      setTypedText(current.slice(0, typedText.length - 1));
+      timer = setTimeout(tick, 50);
+    } else if (!isDeleting && typedText.length === current.length) {
+      timer = setTimeout(() => {
+        setIsDeleting(true);
+        tick();
+      }, 2400);
+    } else if (isDeleting && typedText.length === 0) {
+      setIsDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+      timer = setTimeout(tick, 500);
+    }
+  };
 
-    tick();
-    return () => clearTimeout(timer);
-  }, [typedText, isDeleting, roleIndex, roles, t]);
+  tick();
+  return () => clearTimeout(timer);
+}, [typedText, isDeleting, roleIndex, roles, t]);
 
   const theme = {
     background: darkMode ? "#0b1320" : "#f2efe8",
