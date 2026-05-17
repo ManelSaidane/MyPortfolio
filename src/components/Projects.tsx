@@ -1,170 +1,158 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
 
-const Projects: React.FC = () => {
+const ProjectsPage: React.FC<{ darkMode: boolean }> = ({ darkMode }) => {
   const location = useLocation();
-  const [darkMode, setDarkMode] = useState(true);
+  const { t } = useTranslation();
 
   const themeStyles = {
     background: darkMode
-      ? 'linear-gradient(135deg, #0f2027, #203a43, #2c5364)'
-      : 'linear-gradient(135deg, #f5f7fa, #c3cfe2)',
-    textColor: darkMode ? '#e0e0e0' : '#121212',
-    cardBg: darkMode ? 'rgba(255,255,255,0.05)' : '#fff',
-    cardShadow: darkMode ? '0 8px 24px rgba(0,0,0,0.4)' : '0 8px 24px rgba(0,0,0,0.1)',
+      ? 'linear-gradient(135deg, #0b1320, #1f2a44, #2c3a5a)'
+      : 'linear-gradient(135deg, #f5f7fa, #c7b8a6)',
+    textColor: darkMode ? '#f2efe8' : '#0b1320',
+    cardBg: darkMode ? 'rgba(255,255,255,0.06)' : '#fff',
+    cardShadow: darkMode ? '0 12px 30px rgba(0,0,0,0.65)' : '0 8px 25px rgba(0,0,0,0.12)',
+    accentColor: '#b46a55',
   };
 
   const projects = [
     {
-      title: 'Fullstack Developer, Freelance',
+      title: t('projectsPage.imset.title'),
+      date: '04/2026 – Present',
+      institution: t('projectsPage.imset.institution'),
+      details: [
+        t('projectsPage.imset.detail1'),
+        t('projectsPage.imset.detail2'),
+        t('projectsPage.imset.detail3'),
+        t('projectsPage.imset.detail4'),
+      ],
+      tech: ['Microsoft Office', 'Algorithmique', 'Pédagogie'],
+    },
+    {
+      title: t('projectsPage.mtouch.title'),
+      date: '01/2026 – Present',
+      app: t('projectsPage.mtouch.app'),
+      details: [
+        t('projectsPage.mtouch.detail1'),
+        t('projectsPage.mtouch.detail2'),
+        t('projectsPage.mtouch.detail3'),
+        t('projectsPage.mtouch.detail4'),
+        t('projectsPage.mtouch.detail5'),
+      ],
+      tech: ['Next.js', 'Spring Boot', 'MySQL'],
+    },
+    {
+      title: t('projectsPage.doctrina.title'),
+      date: '12/2025 – 01/2026',
+      app: t('projectsPage.doctrina.app'),
+      details: [
+        t('projectsPage.doctrina.detail1'),
+        t('projectsPage.doctrina.detail2'),
+        t('projectsPage.doctrina.detail3'),
+        t('projectsPage.doctrina.detail4'),
+      ],
+      tech: ['Next.js', 'Node.js', 'MySQL'],
+    },
+    {
+      title: t('projectsPage.weefarm.title'),
+      date: '11/2025 – Present',
+      app: t('projectsPage.weefarm.app'),
+      details: [
+        t('projectsPage.weefarm.detail1'),
+        t('projectsPage.weefarm.detail2'),
+        t('projectsPage.weefarm.detail3'),
+        t('projectsPage.weefarm.detail4'),
+      ],
+      tech: ['Flutter', 'Firebase', 'REST API'],
+    },
+    {
+      title: t('projectsPage.crafthub.title'),
       date: '07/2025 – 09/2025',
-      app: 'CraftHub — E-commerce Platform for Artisanal Products & Workshops',
+      app: t('projectsPage.crafthub.app'),
       details: [
-        'Built a marketplace + workshop reservation system (online & in-person).',
-        'Subscription model for artisans to list products and host workshops.',
-        'Integrated AI features for recommendations, content moderation and pricing optimization.',
-        'Features: category/region/style navigation, wishlist, secure payments, account management.',
+        t('projectsPage.crafthub.detail1'),
+        t('projectsPage.crafthub.detail2'),
+        t('projectsPage.crafthub.detail3'),
+        t('projectsPage.crafthub.detail4'),
       ],
-      tech: ['React', 'Spring Boot', 'Flutter', 'AI'],
+      tech: ['React', 'Spring Boot', 'AI'],
     },
     {
-      title: 'Fullstack Developer, GTI',
+      title: t('projectsPage.docusmart.title'),
       date: '02/2025 – 06/2025',
-      app: 'DocuSmart — Intelligent Document Automation',
+      app: t('projectsPage.docusmart.app'),
       details: [
-        'Microservices platform for banking document automation (Spring Boot + Angular).',
-        'AI: YOLOv8, PaddleOCR, LayoutLMv3 for invoice extraction & contract verification.',
-        'Implemented notifications, user dashboards and monitoring tools.',
+        t('projectsPage.docusmart.detail1'),
+        t('projectsPage.docusmart.detail2'),
+        t('projectsPage.docusmart.detail3'),
       ],
-      tech: ['Spring Boot', 'Angular', 'MongoDB', 'YOLOv8'],
+      tech: ['Spring Boot', 'Angular', 'YOLOv8'],
     },
     {
-      title: 'Fullstack Developer, Proxym',
+      title: t('projectsPage.reservation.title'),
       date: '06/2024 – 07/2024',
-      app: 'Reservation Site',
+      app: t('projectsPage.reservation.app'),
       details: [
-        'Full-stack booking/reservation system (NestJS, React, React Native).',
-        'Real-time availability, billing integrations and automated email notifications.',
+        t('projectsPage.reservation.detail1'),
+        t('projectsPage.reservation.detail2'),
       ],
       tech: ['NestJS', 'React', 'React Native'],
     },
     {
-      title: 'Fullstack Developer, Terraform Tunisia',
+      title: t('projectsPage.daycare.title'),
       date: '02/2024 – 05/2024',
-      app: 'Daycare Management Platform',
+      app: t('projectsPage.daycare.app'),
       details: [
-        'Optimized web & mobile app (React + Flutter) for daycare planning and communication.',
-        'Integrated Spring Boot backend for real-time updates, scheduling and reports.',
+        t('projectsPage.daycare.detail1'),
+        t('projectsPage.daycare.detail2'),
       ],
       tech: ['React', 'Flutter', 'Spring Boot'],
     },
     {
-      title: 'Fullstack Developer, Inside Digital Services',
+      title: t('projectsPage.odoo.title'),
       date: '06/2023 – 07/2024',
-      app: 'Order Management Module (Odoo)',
+      app: t('projectsPage.odoo.app'),
       details: [
-        'Developed an Odoo module to automate purchase orders using Python & XML.',
-        'Streamlined ERP workflows and reduced manual processing time.',
+        t('projectsPage.odoo.detail1'),
+        t('projectsPage.odoo.detail2'),
       ],
       tech: ['Python', 'Odoo', 'ERP'],
     },
   ];
 
   return (
-    <div
-      style={{
-        fontFamily: '"Roboto", sans-serif',
-        minHeight: '100vh',
-        background: themeStyles.background,
-        color: themeStyles.textColor,
-        transition: 'all 0.5s ease',
-      }}
-    >
-      {/* Header */}
-      <header
-        style={{
-          position: 'fixed',
-          top: 0,
-          width: '100%',
-          padding: '15px 30px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          background: darkMode ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.6)',
-          backdropFilter: 'blur(10px)',
-          zIndex: 1000,
-          boxSizing: 'border-box',
-        }}
-      >
-        <div style={{ fontSize: '1.5em', fontWeight: 700, color: '#9f67e0' }}>
-          Manel Saidane
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-          <nav style={{ display: 'flex', gap: '15px' }}>
-            {['/', '/about', '/projects', '/resume'].map((path, i) => {
-              const names = ['Home', 'About', 'Projects', 'Resume'];
-              return (
-                <Link
-                  key={i}
-                  to={path}
-                  style={{
-                    color: location.pathname === path ? '#9f67e0' : themeStyles.textColor,
-                    textDecoration: 'none',
-                    fontWeight: 700,
-                  }}
-                >
-                  {names[i]}
-                </Link>
-              );
-            })}
-          </nav>
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            style={{
-              padding: '6px 12px',
-              borderRadius: '8px',
-              border: 'none',
-              cursor: 'pointer',
-              backgroundColor: darkMode ? '#9f67e0' : '#333',
-              color: '#fff',
-              fontWeight: 600,
-            }}
-          >
-            {darkMode ? '☀ Light' : '🌙 Dark'}
-          </button>
-        </div>
-      </header>
-
-      {/* Main Content */}
+    <div style={{
+      fontFamily: '"Roboto", sans-serif',
+      background: themeStyles.background,
+      color: themeStyles.textColor,
+      minHeight: '100vh',
+      transition: 'all 0.5s ease',
+    }}>
       <main style={{ padding: '140px 20px 80px', maxWidth: '1100px', margin: '0 auto' }}>
-        <h1 style={{ fontSize: '2.8em', color: '#9f67e0', marginBottom: '40px', textAlign: 'center' }}>
-          Professional Projects
+        <h1 style={{ fontSize: '2.8em', color: themeStyles.accentColor, marginBottom: '40px', textAlign: 'center' }}>
+          {t('projectsPage.title')}
         </h1>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '22px',
-          }}
-        >
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '22px' }}>
           {projects.map((p, idx) => (
-            <div
-              key={p.title + idx}
-              style={{
-                background: themeStyles.cardBg,
-                padding: '22px',
-                borderRadius: '14px',
-                boxShadow: themeStyles.cardShadow,
-              }}
+            <div key={idx} style={{
+              background: themeStyles.cardBg,
+              padding: '22px',
+              borderRadius: '14px',
+              boxShadow: themeStyles.cardShadow,
+              transition: 'all 0.3s ease',
+            }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-6px)')}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
             >
-              <h3 style={{ margin: 0, marginBottom: '6px', color: '#9f67e0' }}>{p.title}</h3>
+              <h3 style={{ margin: 0, marginBottom: '6px', color: themeStyles.accentColor }}>{p.title}</h3>
               <div style={{ color: '#8b98a6', fontStyle: 'italic', marginBottom: '12px', fontSize: '0.95rem' }}>
                 {p.date}
               </div>
               <div style={{ marginBottom: '10px', fontWeight: 600 }}>
-                <strong>Application:</strong> {p.app}
+                <strong>{p.institution ? 'Institution:' : 'Application:'}</strong> {p.institution || p.app}
               </div>
               <ul style={{ paddingLeft: '18px', margin: '10px 0', lineHeight: 1.6 }}>
                 {p.details.map((d, i) => (
@@ -173,16 +161,14 @@ const Projects: React.FC = () => {
               </ul>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '12px' }}>
                 {p.tech.map((t, i) => (
-                  <span
-                    key={i}
-                    style={{
-                      background: 'rgba(159,103,224,0.12)',
-                      padding: '6px 10px',
-                      borderRadius: '999px',
-                      fontWeight: 700,
-                      fontSize: '0.86rem',
-                    }}
-                  >
+                  <span key={i} style={{
+                    background: 'rgba(180,106,85,0.12)',
+                    padding: '6px 10px',
+                    borderRadius: '999px',
+                    fontWeight: 700,
+                    fontSize: '0.86rem',
+                    color: themeStyles.accentColor,
+                  }}>
                     {t}
                   </span>
                 ))}
@@ -192,30 +178,11 @@ const Projects: React.FC = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer
-        style={{
-          marginTop: '80px',
-          padding: '20px',
-          textAlign: 'center',
-          background: darkMode ? 'rgba(0,0,0,0.7)' : '#f9f9f9',
-        }}
-      >
+      <footer style={{ marginTop: '80px', padding: '20px', textAlign: 'center', background: darkMode ? 'rgba(0,0,0,0.7)' : '#f9f9f9' }}>
         <p>© {new Date().getFullYear()} Manel Saidane — All rights reserved.</p>
-        <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'center', gap: '20px' }}>
-          <a href="mailto:mnlnsdn3@gmail.com" aria-label="Email">
-            {React.createElement(FaEnvelope as React.ElementType, { size: 22, color: '#9f67e0' })}
-          </a>
-          <a href="https://linkedin.com/in/manelsaidane" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            {React.createElement(FaLinkedin as React.ElementType, { size: 22, color: '#0A66C2' })}
-          </a>
-          <a href="https://github.com/ManelSaidane" target="_blank" rel="noreferrer" aria-label="GitHub">
-            {React.createElement(FaGithub as React.ElementType, { size: 22, color: darkMode ? '#fff' : '#333' })}
-          </a>
-        </div>
       </footer>
     </div>
   );
 };
 
-export default Projects;
+export default ProjectsPage;

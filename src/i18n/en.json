@@ -1,0 +1,188 @@
+{
+  "home": "Home",
+  "about": "About",
+  "projects": "Projects",
+  "resume": "Resume",
+  "contact": "Contact",
+  "hello": "Hello, I'm Manel!",
+  "typedRoles": ["Software Engineer", "Full-Stack Developer", "AI Enthusiast"],
+  "welcome": "Welcome to My Digital Journey ✨",
+  "contactMe": "Contact Me",
+  "roles": {
+    "softwareEngineer": "Software Engineer",
+    "fullStackDeveloper": "Full-Stack Developer",
+    "aiEnthusiast": "AI Enthusiast"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "resume": "Resume",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm {{name}}!",
+    "contactButton": "Contact Me"
+  },
+
+  "aboutPage": {
+    "title": "About Me",
+    "intro": "I am Manel Saidane, a passionate software engineer with a journey through full-stack development, AI, and innovative digital solutions."
+  },
+
+  "skills": {
+    "frameworks": "Frameworks",
+    "languages": "Languages",
+    "devops": "DevOps & CI/CD",
+    "databases": "Databases",
+    "aiml": "AI / ML",
+    "tools": "Tools & Digital Journey"
+  },
+
+"certifications": {
+  "title": "Certifications",
+
+  "aiPredictive": {
+    "name": "Applications of AI for Predictive Maintenance",
+    "description": "This certificate is awarded to Manel Saidane for demonstrating competence in the completion of Applications of AI for Predictive Maintenance."
+  },
+
+  "deepLearning": {
+    "name": "Fundamentals of Deep Learning",
+    "description": "This certificate is awarded to Manel Saidane for demonstrating competence in the completion of Fundamentals of Deep Learning."
+  }
+}
+,
+  "contactPage": {
+    "title": "Contact",
+    "subtitle": "You can reach me via email or connect with me on LinkedIn and GitHub.",
+    "email": "Email"
+  },
+  "footer": {
+    "rights": "© {{year}} Manel Saidane — All rights reserved."
+  },
+
+  "projectsPage": {
+    "title": "Professional Projects",
+
+    "imset": {
+      "title": "University Instructor",
+      "institution": "Maghreb Institute of Economic Sciences and Technology (IMSET)",  
+      "detail1": "Teaching Microsoft Access, Microsoft Word and Algorithmics modules.",
+      "detail2": "Preparation of practical work, exams and teaching materials.",
+      "detail3": "Supervision and support of students in practical activities.",
+      "detail4": "Evaluation of projects and pedagogical follow-up of students."
+    },
+
+    "mtouch": {
+      "title": "The M Touch – Luxury Jewelry & Makeup E-commerce",
+      "app": "The M Touch",
+      "detail1": "Designed and developed The M Touch, a premium e-commerce platform specializing in handmade jewelry, glowy makeup, and adorable accessories from Tunisia.",
+      "detail2": "Built a full responsive Next.js frontend with modern UI/UX (Framer Motion animations, rose/gold gradient theme, live search & category filtering, favorites & cart system).",
+      "detail3": "Implemented a secure Spring Boot backend (Java, MySQL) with JWT authentication, role-based access, product management, image upload/compression, and secure payment integration.",
+      "detail4": "Created a complete admin dashboard for product CRUD, category management, order tracking, and user privileges.",
+      "detail5": "Optimized performance with lazy loading, image compression (Thumbnailator), and local filtering for instant results."
+    },
+
+    "doctrina": {
+      "title": "Doctrina Space – Online Learning & Training Platform",
+      "app": "Doctrina Space",
+      "detail1": "Designed and developed a full-featured e-learning platform for managing courses, categories, users, and multilingual content.",
+      "detail2": "Built a scalable backend with role-based access (Admin/User), course management, file uploads, and secure APIs.",
+      "detail3": "Implemented a dynamic multilingual system (i18n) enabling content translation from backend to frontend.",
+      "detail4": "Developed a modern admin dashboard for course creation, category management, image uploads, and platform configuration."
+    },
+
+    "weefarm": {
+      "title": "WeeFarm – Mobile Community Platform for Tunisian Farmers",
+      "app": "WeeFarm",
+      "detail1": "Developed WeeFarm, a Flutter cross-platform app (iOS & Android) to connect Tunisian farmers for knowledge sharing, disease alerts, regional sales, and community engagement.",
+      "detail2": "Built full social feed with posts, comments, likes, reactions, and priority tagging.",
+      "detail3": "Implemented secure auth, image upload, real-time search, pull-to-refresh, Arabic RTL + French localization.",
+      "detail4": "Designed responsive UI with staggered animations and farmer-friendly UX."
+    },
+
+    "crafthub": {
+      "title": "CraftHub – E-commerce Platform for Artisanal Products & Workshops",
+      "app": "CraftHub",
+      "detail1": "Developed an innovative e-commerce platform dedicated to the sale of artisanal products and the reservation of creative workshops.",
+      "detail2": "Implemented a subscription-based model where each artisan must subscribe to a monthly plan.",
+      "detail3": "Integrated artificial intelligence modules to enrich user experience, improve content relevance, automate tasks, and optimize pricing.",
+      "detail4": "Features: category/region/style navigation, wishlist, secure payments, account management."
+    },
+
+    "docusmart": {
+      "title": "DocuSmart – Intelligent Document Automation",
+      "app": "DocuSmart",
+      "detail1": "Microservices platform for banking document automation with Spring Boot, Angular and MongoDB.",
+      "detail2": "Integrated AI solutions (YOLOV8, PaddleOCR, LayoutLMv3) for invoice data extraction and contract authenticity verification.",
+      "detail3": "Implemented automated notifications and intuitive user interface."
+    },
+
+    "reservation": {
+      "title": "Reservation Site",
+      "app": "Reservation Site",
+      "detail1": "Full-stack reservation system with NestJS, ReactJS and React Native.",
+      "detail2": "Real-time availability, billing integrations and automated email notifications."
+    },
+
+    "daycare": {
+      "title": "Daycare Management Platform",
+      "app": "Daycare Management Platform",
+      "detail1": "Optimized web & mobile application with ReactJS and Flutter.",
+      "detail2": "Improved planning, communication and real-time updates with Spring Boot."
+    },
+
+    "odoo": {
+      "title": "Order Management Module (Odoo)",
+      "app": "Order Management Module",
+      "detail1": "Creation of an Odoo module for automating purchase orders using Python and XML.",
+      "detail2": "Streamlined ERP workflows and reduced manual processing time."
+    }
+  },
+  "resume": {
+  "title": "My Resume",
+  "subtitle": "Here is my latest resume. Choose the language and download it.",
+  "download": "⬇ Download Resume"
+},
+"about": {
+  "title": "About Me",
+
+  "paragraph1": "I am Manel Saidane, a software engineer passionate about full-stack development, artificial intelligence, and modern digital experiences.",
+
+  "paragraph2": "I specialize in building scalable web and mobile applications using technologies such as Spring Boot, React, Flutter, Angular, NestJS, and modern DevOps tools.",
+
+  "paragraph3": "My journey combines creativity, problem-solving, and innovation to deliver intelligent and user-friendly platforms across multiple domains including e-commerce, AI automation, and education.",
+
+  "paragraph4": "I enjoy creating elegant digital solutions, learning new technologies, and transforming ideas into impactful real-world products."
+},
+
+"portfolio": {
+  "quickHighlights": "Quick Highlights",
+
+  "stats": {
+    "experience": "Years of Experience",
+    "projects": "Completed Projects",
+    "specialization": "Areas of Expertise"
+  },
+
+  "services": {
+    "title": "What I Can Do For You",
+
+    "fullstack": {
+      "title": "Full-Stack Development",
+      "description": "Modern, scalable, and high-performance web & mobile applications."
+    },
+
+    "ai": {
+      "title": "AI Integration",
+      "description": "Intelligent chatbots, recommendations, and smart automation."
+    },
+
+    "optimization": {
+      "title": "Optimization & Modernization",
+      "description": "Legacy application modernization, performance optimization, and scalability improvements."
+    }
+  }
+}
+}

@@ -1,0 +1,174 @@
+{
+  "home": "Accueil",
+  "about": "À propos",
+  "projects": "Projets",
+  "resume": "CV",
+  "contact": "Contact",
+  "hello": "Bonjour, je suis Manel !",
+  "typedRoles": ["Ingénieur Logiciel", "Développeur Full-Stack", "Passionné d’IA"],
+  "welcome": "Bienvenue dans mon parcours numérique ✨",
+  "contactMe": "Me Contacter",
+  "roles": {
+    "softwareEngineer": "Ingénieur Logiciel",
+    "fullStackDeveloper": "Développeur Full-Stack",
+    "aiEnthusiast": "Passionné d'IA"
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "resume": "CV",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis {{name}} !",
+    "contactButton": "Me Contacter"
+  },
+
+"aboutPage": {
+  "title": "À propos de moi",
+  "intro": "Je suis Manel Saidane, une ingénieure logicielle passionnée par le développement full-stack et l’intelligence artificielle."
+},
+
+"skills": {
+  "frameworks": "Frameworks",
+  "languages": "Langages",
+  "devops": "DevOps & CI/CD",
+  "databases": "Bases de données",
+  "aiml": "IA / ML",
+  "tools": "Outils & Parcours Digital"
+},
+
+"certifications": {
+  "title": "Certifications",
+
+  "aiPredictive": {
+    "name": "Applications de l’IA pour la Maintenance Prédictive",
+    "description": "Ce certificat est attribué à Manel Saidane pour avoir démontré ses compétences dans la formation Applications de l’IA pour la Maintenance Prédictive."
+  },
+
+  "deepLearning": {
+    "name": "Fondamentaux du Deep Learning",
+    "description": "Ce certificat est attribué à Manel Saidane pour avoir démontré ses compétences dans la formation Fondamentaux du Deep Learning."
+  }
+}
+,
+  "contactPage": {
+    "title": "Contact",
+    "subtitle": "Vous pouvez me contacter via email ou me retrouver sur LinkedIn et GitHub.",
+    "email": "Email"
+  },
+  "footer": {
+    "rights": "© {{year}} Manel Saidane — Tous droits réservés."
+  },
+  "projectsPage": {
+    "title": "Projets Professionnels",
+
+    "imset": {
+      "title": "Enseignant Universitaire",
+      "institution": "Institut Maghrébin des Sciences Économiques et de Technologie (IMSET)",
+      "detail1": "Enseignement des modules Microsoft Access, Microsoft Word et Algorithmique.",
+      "detail2": "Préparation des travaux pratiques, examens et supports pédagogiques.",
+      "detail3": "Encadrement et accompagnement des étudiants dans les activités pratiques.",
+      "detail4": "Évaluation des projets et suivi pédagogique des étudiants."
+    },
+
+    "mtouch": {
+      "title": "The M Touch – Luxury Jewelry & Makeup E-commerce",
+      "app": "The M Touch",
+      "detail1": "Conception et développement d'une plateforme e-commerce premium spécialisée dans les bijoux artisanaux, le maquillage glowy et les accessoires adorables de Tunisie.",
+      "detail2": "Développement d'un frontend Next.js entièrement responsive avec animations Framer Motion et thème rose/or.",
+      "detail3": "Implémentation d'un backend Spring Boot sécurisé avec authentification JWT et intégration de paiement.",
+      "detail4": "Création d'un dashboard admin complet pour la gestion des produits et commandes.",
+      "detail5": "Optimisation des performances avec chargement paresseux et compression d'images."
+    },
+
+    "doctrina": {
+      "title": "Doctrina Space – Plateforme d'Apprentissage en Ligne",
+      "app": "Doctrina Space",
+      "detail1": "Conception et développement d'une plateforme e-learning complète pour la gestion des cours et utilisateurs.",
+      "detail2": "Backend scalable avec contrôle d'accès par rôle (Admin/User).",
+      "detail3": "Système multilingue dynamique (i18n) permettant la traduction des contenus.",
+      "detail4": "Dashboard admin moderne pour la création de cours et gestion des catégories."
+    },
+
+    "weefarm": {
+      "title": "WeeFarm – Plateforme Mobile Communautaire pour Agriculteurs Tunisiens",
+      "app": "WeeFarm",
+      "detail1": "Développement d'une application Flutter multiplateforme (iOS & Android).",
+      "detail2": "Construction d'un fil d'actualité social complet avec publications, commentaires et réactions.",
+      "detail3": "Authentification sécurisée, upload d'images et recherche en temps réel.",
+      "detail4": "Interface utilisateur responsive et adaptée aux agriculteurs."
+    },
+
+    "crafthub": {
+      "title": "CraftHub – Plateforme E-commerce pour Produits Artisanaux",
+      "app": "CraftHub",
+      "detail1": "Développement d'une plateforme innovante pour la vente de produits artisanaux et la réservation d'ateliers.",
+      "detail2": "Modèle d'abonnement mensuel pour les artisans.",
+      "detail3": "Intégration de modules d'intelligence artificielle pour les recommandations et l'optimisation des prix.",
+      "detail4": "Fonctionnalités : navigation par catégories/régions, paiement sécurisé et gestion de compte."
+    },
+
+    "docusmart": {
+      "title": "DocuSmart – Plateforme d'Automatisation Intelligente de Documents",
+      "app": "DocuSmart",
+      "detail1": "Plateforme microservices pour l'automatisation des documents bancaires.",
+      "detail2": "Intégration d'IA (YOLOV8, PaddleOCR, LayoutLMv3) pour l'extraction et la vérification.",
+      "detail3": "Notifications automatisées et interface utilisateur intuitive."
+    },
+
+    "reservation": {
+      "title": "Reservation Site",
+      "app": "Système de Réservation",
+      "detail1": "Système de réservation complet avec NestJS, ReactJS et React Native.",
+      "detail2": "Gestion en temps réel, facturation et notifications email automatisées."
+    },
+
+    "daycare": {
+      "title": "Daycare Management Platform",
+      "app": "Plateforme de Gestion de Crèche",
+      "detail1": "Optimisation d'une application web et mobile avec ReactJS et Flutter.",
+      "detail2": "Amélioration de la planification, communication et mises à jour en temps réel."
+    },
+
+    "odoo": {
+      "title": "Order Management Module (Odoo)",
+      "app": "Module de Gestion des Commandes",
+      "detail1": "Création d'un module Odoo pour automatiser les commandes d'achat avec Python et XML.",
+      "detail2": "Rationalisation des workflows ERP."
+    }
+  },
+  "resume": {
+  "title": "Mon CV",
+  "subtitle": "Voici mon CV le plus récent. Choisissez la langue et téléchargez-le.",
+  "download": "⬇ Télécharger le CV"
+},
+"portfolio": {
+  "quickHighlights": "Points forts rapides",
+
+  "stats": {
+    "experience": "Années d'expérience",
+    "projects": "Projets réalisés",
+    "specialization": "Domaines d'expertise"
+  },
+
+  "services": {
+    "title": "Ce que je peux faire pour vous",
+
+    "fullstack": {
+      "title": "Développement Full-Stack",
+      "description": "Applications web et mobiles modernes, évolutives et performantes."
+    },
+
+    "ai": {
+      "title": "Intégration de l'IA",
+      "description": "Chatbots intelligents, systèmes de recommandation et automatisation avancée."
+    },
+
+    "optimization": {
+      "title": "Optimisation & Modernisation",
+      "description": "Modernisation d'applications existantes, optimisation des performances et amélioration de la scalabilité."
+    }
+  }
+}}

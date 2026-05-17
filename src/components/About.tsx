@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   FaJava, FaPython, FaReact, FaRobot,
   FaLinkedin, FaGithub, FaEnvelope
@@ -7,7 +8,7 @@ import {
 import { SiSpringboot, SiFlutter, SiJavascript } from 'react-icons/si';
 import { IconType } from 'react-icons';
 
-// --- Skill Interfaces ---
+
 interface SkillItem {
   name: string;
   Icon: IconType;
@@ -19,14 +20,12 @@ interface SkillCategory {
   items: SkillItem[];
 }
 
-// --- Certifications Interface ---
 interface Certification {
   name: string;
   description: string;
   link: string;
 }
 
-// --- Skills Structured like CV ---
 const skills: SkillCategory[] = [
   {
     title: 'Frameworks',
@@ -34,7 +33,7 @@ const skills: SkillCategory[] = [
       { name: 'Spring Boot', Icon: SiSpringboot, color: '#6DB33F' },
       { name: 'NestJS', Icon: FaRobot, color: '#E0234E' },
       { name: 'React', Icon: FaReact, color: '#61DAFB' },
-      { name: 'Angular', Icon: FaReact, color: '#DD0031' }, // proxy icon
+      { name: 'Angular', Icon: FaReact, color: '#DD0031' },
       { name: 'Flutter', Icon: SiFlutter, color: '#02569B' },
       { name: 'React Native', Icon: FaReact, color: '#61DAFB' },
     ],
@@ -52,7 +51,7 @@ const skills: SkillCategory[] = [
     title: 'DevOps & CI/CD',
     items: [
       { name: 'Docker', Icon: FaRobot, color: '#2496ED' },
-      { name: 'GitHub Actions', Icon: FaGithub, color: '#333' },
+      { name: 'GitHub Actions', Icon: FaGithub, color: '#fff' },
       { name: 'Jenkins', Icon: FaRobot, color: '#D33833' },
     ],
   },
@@ -79,50 +78,34 @@ const skills: SkillCategory[] = [
     items: [
       { name: 'Git', Icon: FaGithub, color: '#F05032' },
       { name: 'VS Code', Icon: FaRobot, color: '#007ACC' },
-      { name: 'GitHub', Icon: FaGithub, color: '#333' },
+      { name: 'GitHub', Icon: FaGithub, color: '#fff' },
       { name: 'LinkedIn', Icon: FaLinkedin, color: '#0A66C2' },
     ],
   },
 ];
 
-// --- Certifications ---
-const certifications: Certification[] = [
+const certifications = [
   {
-    name: 'Applications of AI for Predictive Maintenance',
-    description:
-      'This certificate is awarded to Manel Saidane for demonstrating competence in the completion of Applications of AI for Predictive Maintenance.',
+    key: 'aiPredictive',
     link: 'https://learn.nvidia.com/certificates?id=CUaeudhSR3ScKKg3aWE-XA',
   },
   {
-    name: 'Fundamentals of Deep Learning',
-    description:
-      'This certificate is awarded to Manel Saidane for demonstrating competence in the completion of Fundamentals of Deep Learning.',
+    key: 'deepLearning',
     link: 'https://learn.nvidia.com/certificates?id=-YC3IGpBRKG4WnVoFNCAOA',
-  },
-  {
-    name: 'Applications of AI for Predictive Maintenance',
-    description:
-      'This certificate is awarded to Manel Saidane for demonstrating competence in the completion of Applications of AI for Predictive Maintenance.',
-    link: 'https://learn.nvidia.com/certificates?id=Ij4QgmhWR8-zGg0iV2LllQ',
   },
 ];
 
-const About: React.FC = () => {
+interface AboutPageProps {
+  darkMode: boolean;
+}
+
+const AboutPage: React.FC<AboutPageProps> = ({ darkMode }) => {
+
   const location = useLocation();
-  const [darkMode, setDarkMode] = useState(true);
+  const { t } = useTranslation();
   const [animatedText, setAnimatedText] = useState('');
 
-  const themeStyles = {
-    background: darkMode
-      ? 'linear-gradient(135deg, #0f2027, #203a43, #2c5364)'
-      : 'linear-gradient(135deg, #f5f7fa, #c3cfe2)',
-    textColor: darkMode ? '#e0e0e0' : '#121212',
-    sectionBg: darkMode ? 'rgba(255,255,255,0.05)' : '#fff',
-    cardShadow: darkMode ? '0 10px 20px rgba(0,0,0,0.5)' : '0 6px 12px rgba(0,0,0,0.15)',
-  };
-
-  const introText =
-    'I am Manel Saidane, a passionate software engineer with a journey through full-stack development, AI, and innovative digital solutions.';
+  const introText = t('aboutPage.intro');
 
   useEffect(() => {
     let index = 0;
@@ -130,228 +113,183 @@ const About: React.FC = () => {
       setAnimatedText(introText.slice(0, index + 1));
       index++;
       if (index === introText.length) clearInterval(interval);
-    }, 50);
+    }, 45);
     return () => clearInterval(interval);
-  }, []);
+  }, [introText]);
+
+  const themeStyles = {
+    background: darkMode ? 'linear-gradient(135deg, #0b1320, #1f2a44, #2c3a5a)' : 'linear-gradient(135deg, #f5f7fa, #c7b8a6)',
+    textColor: darkMode ? '#f2efe8' : '#0b1320',
+    sectionBg: darkMode ? 'rgba(255,255,255,0.06)' : '#fff',
+    cardShadow: darkMode ? '0 12px 30px rgba(0,0,0,0.65)' : '0 8px 25px rgba(0,0,0,0.12)',
+    accentColor: '#b46a55',
+  };
 
   return (
-    <div
-      style={{
-        fontFamily: '"Roboto", sans-serif',
-        background: themeStyles.background,
-        color: themeStyles.textColor,
-        minHeight: '100vh',
-        transition: 'all 0.5s ease',
-      }}
-    >
-      {/* Header */}
-      <header
-        style={{
-          position: 'fixed',
-          top: 0,
-          width: '100%',
-          padding: '15px 30px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          background: darkMode ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.6)',
-          backdropFilter: 'blur(10px)',
-          zIndex: 1000,
-          boxSizing: 'border-box',
-        }}
-      >
-        <div style={{ fontSize: '1.5em', fontWeight: 700, color: '#9f67e0' }}>Manel Saidane</div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-          <nav style={{ display: 'flex', gap: '15px' }}>
-            {['/', '/about', '/projects', '/contact'].map((path, i) => {
-              const names = ['Home', 'About', 'Projects', 'Contact'];
-              return (
-                <Link
-                  key={i}
-                  to={path}
-                  style={{
-                    color: location.pathname === path ? '#9f67e0' : themeStyles.textColor,
-                    textDecoration: 'none',
-                    fontWeight: 700,
-                  }}
-                >
-                  {names[i]}
-                </Link>
-              );
-            })}
-          </nav>
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            style={{
-              padding: '6px 12px',
-              borderRadius: '8px',
-              border: 'none',
-              cursor: 'pointer',
-              backgroundColor: darkMode ? '#9f67e0' : '#333',
-              color: '#fff',
-              fontWeight: 600,
-            }}
-          >
-            {darkMode ? '☀ Light' : '🌙 Dark'}
-          </button>
-        </div>
-      </header>
+    <div style={{
+      fontFamily: '"Roboto", sans-serif',
+      background: themeStyles.background,
+      color: themeStyles.textColor,
+      minHeight: '100vh',
+      transition: 'all 0.5s ease',
+    }}>
+  
 
       {/* Intro */}
       <section style={{ padding: '140px 20px 80px', textAlign: 'center', maxWidth: '900px', margin: '0 auto' }}>
-        <h1
-          style={{
-            fontSize: '2.8em',
-            color: '#9f67e0',
-            fontFamily: '"Courier New", Courier, monospace',
-            background: 'linear-gradient(90deg, #ff8a00, #e52e71)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            animation: 'fadeIn 2s ease',
-          }}
-        >
-          About Me
+        <h1 style={{
+          fontSize: '2.8em',
+          color: themeStyles.accentColor,
+          fontFamily: '"Courier New", Courier, monospace',
+          background: 'linear-gradient(90deg, #ff8a00, #e52e71)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          animation: 'fadeIn 2s ease',
+        }}>
+          {t('aboutPage.title')}
         </h1>
-        <p
-          style={{
-            fontSize: '1.3em',
-            maxWidth: '800px',
-            margin: '20px auto',
-            lineHeight: '1.8',
-            fontStyle: 'italic',
-            opacity: 0,
-            animation: 'fadeInText 3s forwards',
-            animationDelay: '0.5s',
-          }}
-        >
+        <p style={{
+          fontSize: '1.3em',
+          maxWidth: '800px',
+          margin: '25px auto',
+          lineHeight: '1.8',
+          fontStyle: 'italic',
+          opacity: 0,
+          animation: 'fadeInText 3s forwards',
+          animationDelay: '0.5s',
+        }}>
           {animatedText}
         </p>
       </section>
 
       {/* Skills */}
-      {skills.map((section, idx) => (
-        <section
-          key={idx}
-          style={{
-            padding: '60px 20px',
-            maxWidth: '1000px',
-            margin: '0 auto',
-          }}
-        >
-          <h2 style={{ fontSize: '2.5em', color: '#9f67e0', textAlign: 'center', marginBottom: '40px' }}>
-            {section.title}
-          </h2>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-              gap: '25px',
-            }}
-          >
-            {section.items.map((item, i) => {
-              const Icon = item.Icon as React.ElementType;
-              return (
-                <div
-                  key={i}
-                  style={{
-                    background: themeStyles.sectionBg,
-                    padding: '25px',
-                    borderRadius: '15px',
-                    boxShadow: themeStyles.cardShadow,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)')}
-                  onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0) scale(1)')}
-                >
-                  <Icon color={item.color} size={40} />
-                  <span style={{ marginTop: '12px', fontWeight: 600, fontSize: '1.1em' }}>{item.name}</span>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-      ))}
+    {/* Skills */}
+{skills.map((section, idx) => (
+  <section
+    key={idx}
+    style={{
+      padding: '60px 20px',
+      maxWidth: '1000px',
+      margin: '0 auto',
+    }}
+  >
+    <h2
+      style={{
+        fontSize: '2.5em',
+        color: themeStyles.accentColor,
+        textAlign: 'center',
+        marginBottom: '40px',
+      }}
+    >
+      {section.title}
+    </h2>
 
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+        gap: '25px',
+      }}
+    >
+      {section.items.map((item, i) => {
+        const Icon = item.Icon as React.ElementType;
+
+        return (
+          <div
+            key={i}
+            style={{
+              background: themeStyles.sectionBg,
+              padding: '25px',
+              borderRadius: '15px',
+              boxShadow: themeStyles.cardShadow,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.transform =
+                'translateY(-5px) scale(1.05)')
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.transform =
+                'translateY(0) scale(1)')
+            }
+          >
+            <Icon color={item.color} size={40} />
+
+            <span
+              style={{
+                marginTop: '12px',
+                fontWeight: 600,
+                fontSize: '1.1em',
+              }}
+            >
+              {item.name}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+))}
       {/* Certifications */}
       <section style={{ padding: '60px 20px', maxWidth: '900px', margin: '0 auto' }}>
-        <h2 style={{ fontSize: '2.5em', color: '#9f67e0', textAlign: 'center', marginBottom: '40px' }}>
-          Certifications
+        <h2 style={{ fontSize: '2.5em', color: themeStyles.accentColor, textAlign: 'center', marginBottom: '40px' }}>
+          {t('certifications.title')}
         </h2>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '20px',
-          }}
-        >
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
           {certifications.map((cert, i) => (
-            <a
-              key={i}
-              href={cert.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'block',
-                textDecoration: 'none',
-                color: themeStyles.textColor,
-                backgroundColor: themeStyles.sectionBg,
-                padding: '20px',
-                borderRadius: '15px',
-                boxShadow: themeStyles.cardShadow,
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-              }}
+            <a key={i} href={cert.link} target="_blank" rel="noopener noreferrer" style={{
+              display: 'block',
+              textDecoration: 'none',
+              color: themeStyles.textColor,
+              backgroundColor: themeStyles.sectionBg,
+              padding: '20px',
+              borderRadius: '15px',
+              boxShadow: themeStyles.cardShadow,
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+            }}
               onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-5px) scale(1.03)')}
               onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0) scale(1)')}
             >
-              <h3 style={{ fontSize: '1.2em', fontWeight: 600, marginBottom: '10px' }}>{cert.name}</h3>
-              <p style={{ fontSize: '0.95em', lineHeight: '1.3em' }}>{cert.description}</p>
+            <h3
+  style={{
+    fontSize: '1.2em',
+    fontWeight: 600,
+    marginBottom: '10px',
+  }}
+>
+  {t(`certifications.${cert.key}.name`)}
+</h3>
+
+<p
+  style={{
+    fontSize: '0.95em',
+    lineHeight: '1.3em',
+  }}
+>
+  {t(`certifications.${cert.key}.description`)}
+</p>
             </a>
           ))}
         </div>
       </section>
 
       {/* Footer */}
-      <footer
-        style={{
-          marginTop: '80px',
-          padding: '20px',
-          textAlign: 'center',
-          background: darkMode ? 'rgba(0,0,0,0.7)' : '#f9f9f9',
-        }}
-      >
+      <footer style={{ marginTop: '80px', padding: '30px', textAlign: 'center', background: darkMode ? 'rgba(0,0,0,0.8)' : '#f9f9f9' }}>
         <p>© {new Date().getFullYear()} Manel Saidane — All rights reserved.</p>
-        <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'center', gap: '20px' }}>
-          <a href="mailto:mnlnsdn3@gmail.com" aria-label="Email">
-            {React.createElement(FaEnvelope as React.ElementType, { size: 22, color: '#9f67e0' })}
-          </a>
-          <a href="https://linkedin.com/in/manelsaidane" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            {React.createElement(FaLinkedin as React.ElementType, { size: 22, color: '#0A66C2' })}
-          </a>
-          <a href="https://github.com/ManelSaidane" target="_blank" rel="noreferrer" aria-label="GitHub">
-            {React.createElement(FaGithub as React.ElementType, { size: 22, color: darkMode ? '#fff' : '#333' })}
-          </a>
-        </div>
       </footer>
 
-      {/* Styles */}
       <style>
         {`
-          @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          @keyframes fadeInText {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
+          @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+          @keyframes fadeInText { from { opacity: 0; } to { opacity: 1; } }
         `}
       </style>
     </div>
   );
 };
 
-export default About;
+export default AboutPage;
