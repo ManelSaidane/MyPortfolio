@@ -11,13 +11,14 @@ const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(true);
 
   return (
-    <Router>
+      <Router basename="/MyPortfolio">
+
       <div style={{ background: darkMode ? '#0f2027' : '#f5f7fa', color: darkMode ? '#eee' : '#111', minHeight: '100vh' }}>
         {/* Navbar globale */}
         <Navbar darkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
 
         <Routes>
-          <Route path="/MyPortfolio/" element={<Portfolio darkMode={darkMode}/>} />
+          <Route path="/" element={<Portfolio darkMode={darkMode}/>} />
           <Route path="/projects" element={<Projects darkMode={darkMode} />} />
           <Route path="/about" element={<About darkMode={darkMode} />} />
           <Route path="/contact" element={<Contact darkMode={darkMode} />} />
