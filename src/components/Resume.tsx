@@ -8,11 +8,11 @@ const Resume: React.FC<{ darkMode: boolean }> = ({ darkMode }) => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language as 'fr' | 'en' | 'ar';
 
-  const resumeFiles = {
-    fr: "/Manel_Saidane_Resume-FRN.pdf",
-    en: "/Manel_Saidane_Resume_Ang.pdf",
-    ar: "/Manel_Saidane_Resume_Ang.pdf",   // ← change si ton nom est différent
-  };
+const resumeFiles = {
+  fr: `${process.env.PUBLIC_URL}/Manel_Saidane_Resume-FRN.pdf`,
+  en: `${process.env.PUBLIC_URL}/Manel_Saidane_Resume_Ang.pdf`,
+  ar: `${process.env.PUBLIC_URL}/Manel_Saidane_Resume_Ang.pdf`,
+};
 
   const currentFile = resumeFiles[currentLang] || resumeFiles.fr;
 
