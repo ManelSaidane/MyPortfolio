@@ -17,7 +17,7 @@ const App: React.FC = () => {
         <Navbar darkMode={darkMode} toggleDarkMode={() => setDarkMode(!darkMode)} />
 
         <Routes>
-          <Route path="/" element={<Portfolio darkMode={darkMode}/>} />
+          <Route path="/MyPortfolio/" element={<Portfolio darkMode={darkMode}/>} />
           <Route path="/projects" element={<Projects darkMode={darkMode} />} />
           <Route path="/about" element={<About darkMode={darkMode} />} />
           <Route path="/contact" element={<Contact darkMode={darkMode} />} />
